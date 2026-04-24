@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Mascotas</title>
+</head>
+<body>
+    <h1>Reportes</h1>
+    <ul>
+        {% for reporte in reportes %}
+            <li>{{ reporte.nombre }} </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
