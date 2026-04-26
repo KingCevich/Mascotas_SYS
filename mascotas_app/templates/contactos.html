@@ -1,0 +1,8 @@
+<h1>Contactos</h1>
+<ul>
+    {% for contacto in contactos %}
+        <li>{{ contacto.reporte }}</li>
+    {% empty %}
+        <li>No hay contactos registrados</li>
+    {% endfor %}
+</ul>
