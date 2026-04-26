@@ -28,7 +28,7 @@ class Reporte(models.Model):
     estado_reporte = models.CharField(choices=ESTADO_REPORTE)
 
     def __str__(self):
-        return f"Nombre: {self.get_nombre_mascota_display()} - ({self.get_tipo_reporte_display()}) - Estado: {self.get_estado_reporte_display()}"
+        return f"{self.nombre_mascota} - ({self.get_tipo_reporte_display()}) - Estado: {self.get_estado_reporte_display()}"
 
     
 class Contacto(models.Model):
