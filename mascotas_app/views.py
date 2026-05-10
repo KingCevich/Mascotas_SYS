@@ -2,9 +2,10 @@ from django.shortcuts import render
 from .models import Reporte, Contacto
 
 from rest_framework.views import APIView
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, exceptions
 from rest_framework.response import Response
 from .serializers import ContactoSerializer, ReporteSerializer
+from .auth import get_token_from_request, validate_token
 
 
 # Create your views here.
@@ -17,11 +18,27 @@ def lista_contactos(request):
     return render(request, 'contactos.html', {'contactos': contactos})
 
 
-class ReporteViewSet(viewsets.ModelViewSet):
+class TokenRequiredMixin:
+    def initial(self, request, *args, **kwargs):
+        if request.method not in ('GET', 'HEAD', 'OPTIONS'):
+            token = get_token_from_request(request)
+            valid, payload = validate_token(token)
+            if not valid:
+                raise exceptions.AuthenticationFailed(payload.get('error', 'Token inválido'))
+
+            if request.method in ('PUT', 'PATCH', 'DELETE'):
+                if payload.get('rol') != 'Admin':
+                    raise exceptions.PermissionDenied('Solo un administrador puede modificar o eliminar.')
+
+            request.auth_payload = payload
+        return super().initial(request, *args, **kwargs)
+
+
+class ReporteViewSet(TokenRequiredMixin, viewsets.ModelViewSet):
     queryset = Reporte.objects.all()
     serializer_class = ReporteSerializer
 
-class ContactoViewSet(viewsets.ModelViewSet):
+class ContactoViewSet(TokenRequiredMixin, viewsets.ModelViewSet):
     queryset = Contacto.objects.all()
     serializer_class = ContactoSerializer
 
