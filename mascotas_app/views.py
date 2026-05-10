@@ -17,7 +17,7 @@ def lista_contactos(request):
     contactos = Contacto.objects.all()
     return render(request, 'contactos.html', {'contactos': contactos})
 
-
+#Permisos de realizacion de CRUD dependiendo de Rol del Usuario, solo Admin puede modificar o eliminar, cualquier usuario puede crear o leer
 class TokenRequiredMixin:
     def initial(self, request, *args, **kwargs):
         if request.method not in ('GET', 'HEAD', 'OPTIONS'):
