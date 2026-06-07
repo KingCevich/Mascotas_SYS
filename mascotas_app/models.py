@@ -12,6 +12,7 @@ ESTADO_REPORTE = [
 ]
 
 class Reporte(models.Model):
+    usuario_id = models.IntegerField()
     tipo_reporte = models.CharField(choices=TIPO_REPORTE)
     nombre_mascota = models.CharField(max_length=25)
     raza = models.CharField(max_length=30)

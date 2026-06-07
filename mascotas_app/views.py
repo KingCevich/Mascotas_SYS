@@ -35,8 +35,33 @@ class TokenRequiredMixin:
 
 
 class ReporteViewSet(TokenRequiredMixin, viewsets.ModelViewSet):
-    queryset = Reporte.objects.all()
     serializer_class = ReporteSerializer
+
+    def get_queryset(self):
+        queryset = Reporte.objects.all()
+
+        # Filtro por usuario_id (simple o múltiple con comas)
+        usuario_id = self.request.query_params.get('usuario_id')
+        if usuario_id:
+            ids = [int(id) for id in usuario_id.split(',')]
+            queryset = queryset.filter(usuario_id__in=ids)
+
+        # Filtro por tipo de reporte
+        tipo = self.request.query_params.get('tipo_reporte')
+        if tipo:
+            queryset = queryset.filter(tipo_reporte=tipo)
+
+        # Filtro por adopción
+        en_adopcion = self.request.query_params.get('en_adopcion')
+        if en_adopcion is not None:
+            queryset = queryset.filter(en_adopcion=en_adopcion.lower() == 'true')
+
+        # Filtro por adoptado
+        adoptado = self.request.query_params.get('adoptado')
+        if adoptado is not None:
+            queryset = queryset.filter(adoptado=adoptado.lower() == 'true')
+
+        return queryset
 
 class ContactoViewSet(TokenRequiredMixin, viewsets.ModelViewSet):
     queryset = Contacto.objects.all()

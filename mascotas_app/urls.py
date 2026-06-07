@@ -4,7 +4,7 @@ from . import views
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'reportes', ReporteViewSet)
+router.register(r'reportes', ReporteViewSet, basename='reporte')
 router.register(r'contactos', ContactoViewSet)
 
 urlpatterns = [
