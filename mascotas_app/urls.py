@@ -8,7 +8,10 @@ router.register(r'reportes', ReporteViewSet, basename='reporte')
 router.register(r'contactos', ContactoViewSet)
 
 urlpatterns = [
+    #HTML
     path('reportes/', lista_reportes, name='lista_reportes'),
     path('contactos/', lista_contactos, name='lista_contactos'),
+
+    #API 
     path('api/', include(router.urls)),
 ]

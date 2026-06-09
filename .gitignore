@@ -1,0 +1,26 @@
+# Python/Django
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignore environment and local secret settings
+.env
+*.env
+local_settings.py
+secret_key.py
+secrets.py
+
+# Django database and media
+db.sqlite3
+/media/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.sys_venv/
+
+# OS files
+.DS_Store
+Thumbs.db
