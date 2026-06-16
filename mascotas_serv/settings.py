@@ -130,3 +130,5 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 AUTH_SERVICE_URL = os.environ.get('AUTH_SERVICE_URL', 'http://127.0.0.1:8001')
+
+AI_SERVICE_URL = os.environ.get("AI_SERVICE_URL","http://127.0.0.1:8006")

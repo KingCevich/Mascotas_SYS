@@ -20,7 +20,7 @@ venv/
 env/
 ENV/
 .sys_venv/
-
+ia_venv/ 
 # OS files
 .DS_Store
 Thumbs.db
