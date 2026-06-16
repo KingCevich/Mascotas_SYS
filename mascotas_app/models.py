@@ -12,7 +12,6 @@ ESTADO_REPORTE = [
 ]
 
 class Reporte(models.Model):
-    usuario_id = models.IntegerField()
     tipo_reporte = models.CharField(choices=TIPO_REPORTE)
     nombre_mascota = models.CharField(max_length=25)
     raza = models.CharField(max_length=30)
@@ -23,10 +22,17 @@ class Reporte(models.Model):
     latitud = models.DecimalField(max_digits=9, decimal_places=6)
     longitud = models.DecimalField(max_digits=9, decimal_places=6)
     descripcion = models.TextField(blank=True, null=True)
-    foto_url = models.URLField(max_length=300, blank=True, null=True)
+    foto_url_one = models.URLField(max_length=300, blank=True, null=True)
+    foto_url_two = models.URLField(max_length=300, blank=True, null=True)
     en_adopcion = models.BooleanField(default=False)
     adoptado = models.BooleanField(default=False)
     estado_reporte = models.CharField(choices=ESTADO_REPORTE)
+
+    foto_vector = models.JSONField(
+        null=True,
+        blank=True,
+        help_text="Vector de características visuales generado por el microservicio IA (1280 dims)."
+    )
 
     def __str__(self):
         return f"{self.nombre_mascota} - ({self.get_tipo_reporte_display()}) - Estado: {self.get_estado_reporte_display()}"
