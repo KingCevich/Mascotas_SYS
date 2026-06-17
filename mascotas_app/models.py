@@ -27,6 +27,7 @@ class Reporte(models.Model):
     en_adopcion = models.BooleanField(default=False)
     adoptado = models.BooleanField(default=False)
     estado_reporte = models.CharField(choices=ESTADO_REPORTE)
+    usuario_id = models.IntegerField(null=True, blank=True)
 
     foto_vector = models.JSONField(
         null=True,

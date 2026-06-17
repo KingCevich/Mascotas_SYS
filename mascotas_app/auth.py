@@ -6,7 +6,10 @@ def get_token_from_request(request):
     auth_header = request.headers.get("Authorization") or request.headers.get("authorization")
     if auth_header and auth_header.lower().startswith("bearer "):
         return auth_header.split(" ", 1)[1].strip()
-    return request.data.get("token") or request.query_params.get("token")
+    try:
+        return request.data.get("token") or request.query_params.get("token")
+    except AttributeError:
+        return None
 
 #validacion de token a traves de auth_serv, retorna payload del token si es valido, o error si no lo es
 def validate_token(token: str):

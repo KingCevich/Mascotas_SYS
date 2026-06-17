@@ -11,10 +11,11 @@ def create_default_reportes(sender, **kwargs):
 
     reportes_data = [
         # =========================================================
-        # DUEÑO 1 (dueno@demo.com) – Reportes normales
+        # DUEÑO 1 (dueno@demo.com, usuario_id=1) – Reportes normales
         # =========================================================
         {
             "reporte": {
+                "usuario_id": 1,
                 "tipo_reporte": "Perdido",
                 "nombre_mascota": "Max",
                 "raza": "LABRADOR",
@@ -34,6 +35,7 @@ def create_default_reportes(sender, **kwargs):
         },
         {
             "reporte": {
+                "usuario_id": 1,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Luna",
                 "raza": "MESTIZO",
@@ -53,10 +55,11 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # DUEÑO 2 (juan@dueno.cl) – Reportes normales
+        # DUEÑO 2 (juan@dueno.cl, usuario_id=8) – Reportes normales
         # =========================================================
         {
             "reporte": {
+                "usuario_id": 8,
                 "tipo_reporte": "Perdido",
                 "nombre_mascota": "Toby",
                 "raza": "POODLE",
@@ -76,6 +79,7 @@ def create_default_reportes(sender, **kwargs):
         },
         {
             "reporte": {
+                "usuario_id": 8,
                 "tipo_reporte": "Avistado",
                 "nombre_mascota": "Pelusa",
                 "raza": "GOLDEN RETRIEVER",
@@ -95,11 +99,12 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # REFUGIO DEMO (refugio@demo.com) – Adopciones y un reporte normal
+        # REFUGIO DEMO (refugio@demo.com, usuario_id=2) – Adopciones y un reporte normal
         # =========================================================
         # -- ADOPCIÓN: Michi (descripción larga, sin coordenadas reales) --
         {
             "reporte": {
+                "usuario_id": 2,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Michi",
                 "raza": "SIAMES",
@@ -126,6 +131,7 @@ def create_default_reportes(sender, **kwargs):
         # -- ADOPCIÓN: Rex (descripción larga) --
         {
             "reporte": {
+                "usuario_id": 2,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Rex",
                 "raza": "PASTOR ALEMÁN",
@@ -152,6 +158,7 @@ def create_default_reportes(sender, **kwargs):
         # -- REPORTE NORMAL del refugio: Bella (perdida) --
         {
             "reporte": {
+                "usuario_id": 2,
                 "tipo_reporte": "Perdido",
                 "nombre_mascota": "Bella",
                 "raza": "BORDER COLLIE",
@@ -171,11 +178,12 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # FUNDACIÓN HUELLA ANIMAL (huella@demo.com) – Adopciones
+        # FUNDACIÓN HUELLA ANIMAL (huella@demo.com, usuario_id=10) – Adopciones
         # =========================================================
         # -- ADOPCIÓN: Nala --
         {
             "reporte": {
+                "usuario_id": 10,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Nala",
                 "raza": "CHIHUAHUA",
@@ -202,6 +210,7 @@ def create_default_reportes(sender, **kwargs):
         # -- ADOPCIÓN: Simón --
         {
             "reporte": {
+                "usuario_id": 10,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Simón",
                 "raza": "MAINE COON",
@@ -227,10 +236,11 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # VETERINARIA BÍO BÍO (vetbiobio@demo.com) – Reporte normal
+        # VETERINARIA BÍO BÍO (vetbiobio@demo.com, usuario_id=11) – Reporte normal
         # =========================================================
         {
             "reporte": {
+                "usuario_id": 11,
                 "tipo_reporte": "Avistado",
                 "nombre_mascota": "Copito",
                 "raza": "BICHON FRISÉ",
@@ -250,10 +260,11 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # MUNICIPALIDAD (municipalidad@demo.com) – Reporte normal
+        # MUNICIPALIDAD (municipalidad@demo.com, usuario_id=4) – Reporte normal
         # =========================================================
         {
             "reporte": {
+                "usuario_id": 4,
                 "tipo_reporte": "Avistado",
                 "nombre_mascota": "Sombra",
                 "raza": "QUILTRO",
