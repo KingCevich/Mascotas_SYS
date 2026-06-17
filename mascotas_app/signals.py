@@ -11,11 +11,10 @@ def create_default_reportes(sender, **kwargs):
 
     reportes_data = [
         # =========================================================
-        # DUEÑO 1 (dueno@demo.com, usuario_id=1) – Reportes normales
+        # DUEÑO 1 (dueno@demo.com) – Reportes normales
         # =========================================================
         {
             "reporte": {
-                "usuario_id": 1,
                 "tipo_reporte": "Perdido",
                 "nombre_mascota": "Max",
                 "raza": "LABRADOR",
@@ -26,7 +25,7 @@ def create_default_reportes(sender, **kwargs):
                 "latitud": -33.456200,
                 "longitud": -70.648500,
                 "descripcion": "Perro amigable con collar azul. Responde al nombre Max.",
-                "foto_url": "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400",
                 "en_adopcion": False,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -35,7 +34,6 @@ def create_default_reportes(sender, **kwargs):
         },
         {
             "reporte": {
-                "usuario_id": 1,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Luna",
                 "raza": "MESTIZO",
@@ -46,7 +44,7 @@ def create_default_reportes(sender, **kwargs):
                 "latitud": -33.461000,
                 "longitud": -70.655000,
                 "descripcion": "Gata encontrada en calle Ossa, muy dócil. Parece tener dueño.",
-                "foto_url": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400",
                 "en_adopcion": False,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -55,11 +53,10 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # DUEÑO 2 (juan@dueno.cl, usuario_id=8) – Reportes normales
+        # DUEÑO 2 (juan@dueno.cl) – Reportes normales
         # =========================================================
         {
             "reporte": {
-                "usuario_id": 8,
                 "tipo_reporte": "Perdido",
                 "nombre_mascota": "Toby",
                 "raza": "POODLE",
@@ -70,7 +67,7 @@ def create_default_reportes(sender, **kwargs):
                 "latitud": -33.440000,
                 "longitud": -70.630000,
                 "descripcion": "Poodle blanco perdido cerca del parque. Lleva collar rojo.",
-                "foto_url": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400",
                 "en_adopcion": False,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -79,7 +76,6 @@ def create_default_reportes(sender, **kwargs):
         },
         {
             "reporte": {
-                "usuario_id": 8,
                 "tipo_reporte": "Avistado",
                 "nombre_mascota": "Pelusa",
                 "raza": "GOLDEN RETRIEVER",
@@ -90,7 +86,7 @@ def create_default_reportes(sender, **kwargs):
                 "latitud": -33.450000,
                 "longitud": -70.640000,
                 "descripcion": "Golden retriever avistado cerca del mall. Muy amistoso.",
-                "foto_url": "https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=400",
                 "en_adopcion": False,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -99,12 +95,11 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # REFUGIO DEMO (refugio@demo.com, usuario_id=2) – Adopciones y un reporte normal
+        # REFUGIO DEMO (refugio@demo.com) – Adopciones y un reporte normal
         # =========================================================
         # -- ADOPCIÓN: Michi (descripción larga, sin coordenadas reales) --
         {
             "reporte": {
-                "usuario_id": 2,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Michi",
                 "raza": "SIAMES",
@@ -121,7 +116,7 @@ def create_default_reportes(sender, **kwargs):
                     "Está esterilizado, vacunado y desparasitado. "
                     "Busca un hogar donde le den mucho amor y espacio para dormitar al sol."
                 ),
-                "foto_url": "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=400",
                 "en_adopcion": True,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -131,7 +126,6 @@ def create_default_reportes(sender, **kwargs):
         # -- ADOPCIÓN: Rex (descripción larga) --
         {
             "reporte": {
-                "usuario_id": 2,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Rex",
                 "raza": "PASTOR ALEMÁN",
@@ -148,7 +142,7 @@ def create_default_reportes(sender, **kwargs):
                     "Está castrado y al día con sus vacunas. "
                     "Necesita un hogar con patio amplio y tiempo para ejercicio diario."
                 ),
-                "foto_url": "https://images.unsplash.com/photo-1589941013453-ec89a33b3985?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1589941013453-ec89a33b3985?w=400",
                 "en_adopcion": True,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -158,7 +152,6 @@ def create_default_reportes(sender, **kwargs):
         # -- REPORTE NORMAL del refugio: Bella (perdida) --
         {
             "reporte": {
-                "usuario_id": 2,
                 "tipo_reporte": "Perdido",
                 "nombre_mascota": "Bella",
                 "raza": "BORDER COLLIE",
@@ -169,7 +162,7 @@ def create_default_reportes(sender, **kwargs):
                 "latitud": -33.462000,
                 "longitud": -70.651000,
                 "descripcion": "Border collie perdida durante paseo. Tiene microchip. Muy activa.",
-                "foto_url": "https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?w=400",
                 "en_adopcion": False,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -178,12 +171,11 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # FUNDACIÓN HUELLA ANIMAL (huella@demo.com, usuario_id=10) – Adopciones
+        # FUNDACIÓN HUELLA ANIMAL (huella@demo.com) – Adopciones
         # =========================================================
         # -- ADOPCIÓN: Nala --
         {
             "reporte": {
-                "usuario_id": 10,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Nala",
                 "raza": "CHIHUAHUA",
@@ -200,7 +192,7 @@ def create_default_reportes(sender, **kwargs):
                     "Está esterilizada y vacunada. "
                     "Ideal para compañía y regaloneo constante."
                 ),
-                "foto_url": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400",
                 "en_adopcion": True,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -210,7 +202,6 @@ def create_default_reportes(sender, **kwargs):
         # -- ADOPCIÓN: Simón --
         {
             "reporte": {
-                "usuario_id": 10,
                 "tipo_reporte": "Encontrado",
                 "nombre_mascota": "Simón",
                 "raza": "MAINE COON",
@@ -227,7 +218,7 @@ def create_default_reportes(sender, **kwargs):
                     "Está castrado y con sus controles al día. "
                     "Busca un hogar con espacio interior y mucha altura para explorar."
                 ),
-                "foto_url": "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=400",
                 "en_adopcion": True,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -236,11 +227,10 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # VETERINARIA BÍO BÍO (vetbiobio@demo.com, usuario_id=11) – Reporte normal
+        # VETERINARIA BÍO BÍO (vetbiobio@demo.com) – Reporte normal
         # =========================================================
         {
             "reporte": {
-                "usuario_id": 11,
                 "tipo_reporte": "Avistado",
                 "nombre_mascota": "Copito",
                 "raza": "BICHON FRISÉ",
@@ -251,7 +241,7 @@ def create_default_reportes(sender, **kwargs):
                 "latitud": -33.490000,
                 "longitud": -70.680000,
                 "descripcion": "Bichon frisé avistado deambulando, parece perdido. Sin collar.",
-                "foto_url": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400",
                 "en_adopcion": False,
                 "adoptado": False,
                 "estado_reporte": "Activo",
@@ -260,11 +250,10 @@ def create_default_reportes(sender, **kwargs):
         },
 
         # =========================================================
-        # MUNICIPALIDAD (municipalidad@demo.com, usuario_id=4) – Reporte normal
+        # MUNICIPALIDAD (municipalidad@demo.com) – Reporte normal
         # =========================================================
         {
             "reporte": {
-                "usuario_id": 4,
                 "tipo_reporte": "Avistado",
                 "nombre_mascota": "Sombra",
                 "raza": "QUILTRO",
@@ -275,7 +264,7 @@ def create_default_reportes(sender, **kwargs):
                 "latitud": -33.455000,
                 "longitud": -70.645000,
                 "descripcion": "Perro quiltro negro visto rondando la plaza municipal. Parece hambriento.",
-                "foto_url": "https://images.unsplash.com/photo-1568572933382-74d440642117?w=400",
+                "foto_url_one": "https://images.unsplash.com/photo-1568572933382-74d440642117?w=400",
                 "en_adopcion": False,
                 "adoptado": False,
                 "estado_reporte": "Activo",
