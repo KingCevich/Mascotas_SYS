@@ -72,10 +72,10 @@ Información de contacto vinculada a un reporte.
 Frontend / Postman
        │
        ▼
-  bff_serv (8003)
+  bff_sys (8003)
        │  multipart/form-data con foto
        ▼
- mascotas_serv (8002)
+ mascotas_sys (8002)
        │
        ├─► Guarda reporte en BD (responde 201 inmediato)
        │
@@ -113,7 +113,7 @@ El microservicio FastAPI de IA requiere un entorno virtual **independiente** del
  
 ```bash
 # Desde la raíz del proyecto
-cd mascotas_serv
+cd mascotas_sys
  
 # Crear entorno virtual con Python 3.10 o 3.11 (TensorFlow no soporta 3.12+)
 python3.10 -m venv venv_ia
@@ -146,7 +146,7 @@ pip install fastapi uvicorn tensorflow numpy pillow scikit-learn requests
 ### Levantar el microservicio IA
  
 ```bash
-# Con el entorno venv_ia activado dentro de mascotas_serv general
+# Con el entorno venv_ia activado dentro de mascotas_sys general
 
 uvicorn main:app --host 0.0.0.0 --port 8006 --reload
 ```
@@ -175,7 +175,7 @@ El worker de Celery procesa las tareas de análisis IA en segundo plano. Debe ej
  
 ```bash
 # Con el entorno sys_venv activado
-cd mascotas_serv
+cd mascotas_sys
  
 # Windows (requiere --pool=solo por limitaciones de Windows)
 celery -A mascotas_serv worker --loglevel=info --pool=solo
@@ -219,7 +219,7 @@ Los tests de escritura usan `@patch` para simular la validación del token JWT c
 - `test_delete_contacto` — DELETE con token Admin elimina el contacto
 
 ```bash
-cd mascotas_serv
+cd mascotas_sys
 python manage.py test
 ```
 
@@ -228,10 +228,10 @@ python manage.py test
 ## Levantar el servicio
 
 ```bash
-cd mascotas_serv
+cd mascotas_sys
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver 8002
 ```
 
-> **Nota:** Requiere que `auth_serv` esté corriendo en el puerto 8001 para validar tokens en operaciones de escritura. Para el flujo completo con IA, también deben estar activos Redis, el worker de Celery, el microservicio FastAPI IA en el puerto 8006, y `notificaciones_serv` en el puerto 8005.
+> **Nota:** Requiere que `auth_sys` esté corriendo en el puerto 8001 para validar tokens en operaciones de escritura. Para el flujo completo con IA, también deben estar activos Redis, el worker de Celery, el microservicio FastAPI IA en el puerto 8006, y `notificaciones_sys` en el puerto 8005.
