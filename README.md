@@ -229,6 +229,7 @@ python manage.py test
 
 ```bash
 cd mascotas_serv
+python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver 8002
 ```
