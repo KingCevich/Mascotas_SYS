@@ -113,7 +113,7 @@ El microservicio FastAPI de IA requiere un entorno virtual **independiente** del
  
 ```bash
 # Desde la raíz del proyecto
-cd fastapi_ia
+cd mascotas_serv
  
 # Crear entorno virtual con Python 3.10 o 3.11 (TensorFlow no soporta 3.12+)
 python3.10 -m venv venv_ia
