@@ -1,6 +1,6 @@
 """
 main.py — Microservicio de IA para reconocimiento visual de mascotas
-=====================================================================
+
 Corre en: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
 
 Endpoints:

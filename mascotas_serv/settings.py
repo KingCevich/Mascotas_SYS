@@ -132,3 +132,13 @@ STATIC_URL = 'static/'
 AUTH_SERVICE_URL = os.environ.get('AUTH_SERVICE_URL', 'http://127.0.0.1:8001')
 
 AI_SERVICE_URL = os.environ.get("AI_SERVICE_URL","http://127.0.0.1:8006")
+
+NOTIFICACIONES_SERVICE_URL = os.environ.get("NOTIFICACIONES_SERVICE_URL", 'http://127.0.0.1:8005')
+
+CELERY_BROKER_URL    = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
+CELERY_ACCEPT_CONTENT      = ['json']
+CELERY_TASK_SERIALIZER     = 'json'
+CELERY_RESULT_SERIALIZER   = 'json'
+CELERY_TASK_TRACK_STARTED  = True
+CELERY_TASK_TIME_LIMIT     = 120  # 2 min máximo por tarea IA
