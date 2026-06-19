@@ -160,11 +160,28 @@ uvicorn main:app --host 0.0.0.0 --port 8006 --reload
 Redis actúa como intermediario entre mascotas_serv y el worker de Celery. Debe estar corriendo antes de iniciar el worker.
  
 ```bash
-# Levantar Redis con Docker
+# Levantar Redis con Docker (dockerdesktpo)
 docker run -d -p 6379:6379 --name redis redis
- 
 # Verificar que está corriendo
 docker ps
+
+# Levantar Redis con Memurai (instalando en pagina y el .msi (corre automatico)), usar ping para ver si corre
+redis-cli ping
+localhost:6379
+
+#Levantar con Redis-Windows(github tporadowski, descargando .zip(manual) o .msi(automatico))
+#manual:
+cd ruta\donde\descomprimiste\redis
+redis-server.exe
+
+#Levantar con WSL (dentro de powershell windows subsystem for linux)
+wsl
+sudo apt update
+sudo apt install redis-server
+sudo service redis-server start
+#verificacion de que corra en powershell o linux 
+redis-cli ping
+
 ```
  
 > Si ya tienes un contenedor Redis creado previamente, usa `docker start redis` en vez de `docker run`.
