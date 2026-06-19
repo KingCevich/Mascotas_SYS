@@ -147,7 +147,7 @@ pip install fastapi uvicorn tensorflow numpy pillow scikit-learn requests
  
 ```bash
 # Con el entorno venv_ia activado dentro de mascotas_sys general
-
+cd mascotas_app
 uvicorn main:app --host 0.0.0.0 --port 8006 --reload
 ```
  

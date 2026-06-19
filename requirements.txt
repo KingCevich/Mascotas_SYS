@@ -7,7 +7,9 @@
 #instalar dependencias con: pip install -r requirements.txt o python -m pip install -r requirements.txt
 
 #Nota: este archivo de dependencias es específico para el microservicio de IA (puerto 8006) que analiza las fotos de mascotas. No es necesario instalar estas librerías en los otros microservicios, ya que solo el servicio de IA las utiliza.
-#Nota 2: la ia corre con el siguiente comando con el entorno ia_venv: uvicorn main:app --host 0.0.0.0 --port 8006 --reload (asegurar de que ningun servicio use el puerto 8006, osino cambiar el puerto)
+#Nota 2: la ia corre con el siguiente comando con el entorno ia_venv:
+#cd mascotas_app
+#uvicorn main:app --host 0.0.0.0 --port 8006 --reload (asegurar de que ningun servicio use el puerto 8006, osino cambiar el puerto)
 
 # Librería de machine learning. Aquí vive el modelo MobileNetV2
 # que se usa para "leer" la foto de la mascota y convertirla en un
