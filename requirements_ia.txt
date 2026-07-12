@@ -20,7 +20,6 @@ tensorflow==2.21.0
 # API de alto nivel para construir y usar modelos de deep learning.
 # Viene integrada con TensorFlow y es la que realmente carga y
 # ejecuta MobileNetV2.
-keras==3.14.1
     
 # Librería de cálculo numérico. Se usa para manipular los vectores
 # de la imagen (1280 números) y calcular la similitud coseno entre
