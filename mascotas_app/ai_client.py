@@ -14,7 +14,7 @@ from django.conf import settings
 # URL del microservicio FastAPI — configurable en settings.py
 # Agrega esto a tu settings.py:
 #   AI_SERVICE_URL = "http://localhost:8001"
-AI_SERVICE_URL = getattr(settings, "AI_SERVICE_URL", "http://localhost:8001")
+AI_SERVICE_URL = getattr(settings, "AI_SERVICE_URL", "http://localhost:8006")
 
 TIMEOUT_SEGUNDOS = 30  # MobileNetV2 puede tardar en la primera predicción
 
