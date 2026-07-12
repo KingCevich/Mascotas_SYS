@@ -24,26 +24,26 @@ tensorflow==2.21.0
 # Librería de cálculo numérico. Se usa para manipular los vectores
 # de la imagen (1280 números) y calcular la similitud coseno entre
 # dos fotos distintas.
-numpy==2.4.6
+numpy==1.26.4
     
 # Librería de procesamiento de imágenes (abrir, redimensionar,
 # convertir a RGB) antes de pasarle la foto al modelo de IA.
-pillow==12.2.0
+pillow==10.4.0
     
 # Framework que expone el microservicio de IA como una API REST
 # (el endpoint que mascotas_serv llama vía Celery para analizar
 # una foto).
-fastapi==0.137.1
+fastapi==0.115.0
     
 # Servidor ASGI que ejecuta la aplicación FastAPI del microservicio
 # de IA.
-uvicorn==0.49.0
+uvicorn==0.32.0
 
 # Necesaria para que FastAPI pueda recibir archivos (la foto de la
 # mascota) en peticiones multipart/form-data.
-python-multipart==0.0.32
+python-multipart==0.0.12
     
 # Usada para hacer peticiones HTTP hacia otros microservicios
 # (ej: avisar a mascotas_serv o notificaciones_serv del resultado).
-requests==2.34.2
+requests==2.32.3
     
