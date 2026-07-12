@@ -60,10 +60,10 @@ class TokenRequiredMixin:
         if request.method not in ('GET', 'HEAD', 'OPTIONS'):
             token = get_token_from_request(request)
 
-            #temporal
-            if not token:
-                super().initial(request, *args, **kwargs)
-                return
+            # #temporal
+            # if not token:
+            #     super().initial(request, *args, **kwargs)
+            #     return
             
             valid, payload = validate_token(token)
             if not valid:
@@ -113,6 +113,15 @@ class ReporteViewSet(TokenRequiredMixin, viewsets.ModelViewSet):
             image_bytes = request.FILES['file'].read()
 
         reporte    = serializer.save()
+        if not image_bytes and reporte.foto_url_one:
+            try:
+                import requests as req
+                r = req.get(reporte.foto_url_one, timeout=10)
+                if r.status_code == 200:
+                    image_bytes = r.content
+            except Exception as e:
+                logger.warning(f"No se pudo descargar imagen: {e}")
+                
         usuario_id = getattr(request, 'auth_payload', {}).get('user_id') \
              or getattr(request, 'auth_payload', {}).get('usuario_id') \
              or request.data.get('usuario_id')
