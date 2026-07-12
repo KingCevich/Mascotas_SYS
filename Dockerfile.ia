@@ -1,0 +1,16 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq-dev gcc && rm -rf /var/lib/apt/lists/*
+
+COPY requirements_ia.txt .
+RUN pip install --no-cache-dir -r requirements_ia.txt
+
+COPY mascotas_app/main_fastapi.py .
+COPY mascotas_app/ai_client.py .
+
+EXPOSE 8006
+
+CMD ["uvicorn", "main_fastapi:app", "--host", "0.0.0.0", "--port", "8006"]
