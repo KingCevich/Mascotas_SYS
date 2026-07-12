@@ -1,0 +1,50 @@
+#DEPENDENCIAS DE IA_VENV (Separado de sys_venv para aislar las librerías pesadas de IA)
+
+#recordar que crear entorno virtual antes con: python3.10 -m venv ia_venv (o cualquier nombre idk(importante esa version de python para que tensorflow funcione))
+
+#activar entorno virtual con: ia_venv\Scripts\activate.bat
+
+#instalar dependencias con: pip install -r requirements.txt o python -m pip install -r requirements.txt
+
+#Nota: este archivo de dependencias es específico para el microservicio de IA (puerto 8006) que analiza las fotos de mascotas. No es necesario instalar estas librerías en los otros microservicios, ya que solo el servicio de IA las utiliza.
+#Nota 2: la ia corre con el siguiente comando con el entorno ia_venv:
+#cd mascotas_app
+#uvicorn main_fastapi:app --host 0.0.0.0 --port 8006 --reload (asegurar de que ningun servicio use el puerto 8006, osino cambiar el puerto)
+
+# Librería de machine learning. Aquí vive el modelo MobileNetV2
+# que se usa para "leer" la foto de la mascota y convertirla en un
+# vector de 1280 dimensiones que representa sus características
+# visuales.
+tensorflow==2.21.0
+
+# API de alto nivel para construir y usar modelos de deep learning.
+# Viene integrada con TensorFlow y es la que realmente carga y
+# ejecuta MobileNetV2.
+keras==3.14.1
+    
+# Librería de cálculo numérico. Se usa para manipular los vectores
+# de la imagen (1280 números) y calcular la similitud coseno entre
+# dos fotos distintas.
+numpy==2.4.6
+    
+# Librería de procesamiento de imágenes (abrir, redimensionar,
+# convertir a RGB) antes de pasarle la foto al modelo de IA.
+pillow==12.2.0
+    
+# Framework que expone el microservicio de IA como una API REST
+# (el endpoint que mascotas_serv llama vía Celery para analizar
+# una foto).
+fastapi==0.137.1
+    
+# Servidor ASGI que ejecuta la aplicación FastAPI del microservicio
+# de IA.
+uvicorn==0.49.0
+
+# Necesaria para que FastAPI pueda recibir archivos (la foto de la
+# mascota) en peticiones multipart/form-data.
+python-multipart==0.0.32
+    
+# Usada para hacer peticiones HTTP hacia otros microservicios
+# (ej: avisar a mascotas_serv o notificaciones_serv del resultado).
+requests==2.34.2
+    

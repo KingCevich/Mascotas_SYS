@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9r(phs01ypenv7j(g*+x9q*zrla@oe(bpkad+cc!r(+l-r=gk('
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-9r(phs01ypenv7j(g*+x9q*zrla@oe(bpkad+cc!r(+l-r=gk(')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -76,14 +77,9 @@ WSGI_APPLICATION = 'mascotas_serv.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mascotas_db',
-        'USER': 'user_sanos',
-        'PASSWORD': 'pass123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.parse(
+        os.environ.get('DATABASE_URL', 'postgresql://user_sanos:pass123@localhost:5432/mascotas_db')
+    )
 }
 
 REST_FRAMEWORK = {
@@ -135,10 +131,12 @@ AI_SERVICE_URL = os.environ.get("AI_SERVICE_URL","http://127.0.0.1:8006")
 
 NOTIFICACIONES_SERVICE_URL = os.environ.get("NOTIFICACIONES_SERVICE_URL", 'http://127.0.0.1:8005')
 
-CELERY_BROKER_URL    = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
+CELERY_BROKER_URL    = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
+CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL', 'redis://localhost:6379/1')
 CELERY_ACCEPT_CONTENT      = ['json']
 CELERY_TASK_SERIALIZER     = 'json'
 CELERY_RESULT_SERIALIZER   = 'json'
 CELERY_TASK_TRACK_STARTED  = True
 CELERY_TASK_TIME_LIMIT     = 120  # 2 min máximo por tarea IA
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
