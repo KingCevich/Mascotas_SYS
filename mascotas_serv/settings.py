@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'mascotas_serv.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL', 'postgresql://user_sanos:pass123@localhost:5432/mascotas_db')
+        os.environ.get('DATABASE_URL', 'postgresql://user_sanos:pass123@localhost:5432/mascotas_db?sslmode=require')
     )
 }
 
