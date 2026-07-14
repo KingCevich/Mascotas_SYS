@@ -16,7 +16,7 @@ def validate_token(token: str):
     if not token:
         return False, {"error": "Token no proporcionado"}
 
-    url = settings.AUTH_SERVICE_URL.rstrip("/") + "/api/auth/validate-token/"
+    url = settings.AUTH_SERVICE_URL.rstrip("/") + "/validate-token/"
     try:
         with httpx.Client(timeout=5.0) as client:
             response = client.post(url, json={"token": token})
